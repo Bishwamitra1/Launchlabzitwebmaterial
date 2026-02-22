@@ -1,0 +1,1523 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Inline SVG favicon (quick) + project SVG files as main icons -->
+  <link rel="icon"
+    href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect fill='%23040816' width='32' height='32'/><text x='50%' y='55%' font-size='14' font-family='Inter,Segoe UI,Arial' fill='%23ffffff' text-anchor='middle' dominant-baseline='middle'>LL</text></svg>">
+  <!-- Prefer SVG files in the repository (broad browser support for modern browsers) -->
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.svg">
+
+  <meta charset="UTF-8" />
+  <title>Launch Labz LLC – IT Training, Placement & Consulting</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description"
+    content="Launch Labz LLC offers IT training, placement support, and consulting to help you launch your next tech career." />
+
+  <!-- Optional Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Launch Labz LLC – IT Training, Placement & Consulting" />
+  <meta property="og:description"
+    content="Project-based IT training, interview prep, and placement support for modern engineering roles." />
+  <meta property="og:type" content="website" />
+  <!-- ✅ Update this to your new hero background -->
+  <meta property="og:image" content="launchlabzphoto1.png" />
+
+  <style>
+    :root {
+      --bg: #040816;
+      --bg-alt: #0c1424;
+      --accent: #00c1ff;
+      --accent-soft: rgba(0, 193, 255, 0.16);
+      --accent-2: #ff5c7a;
+      --text: #f5f7fb;
+      --muted: #a6b2ce;
+      --card-bg: #111a2b;
+      --border-subtle: #1f2a45;
+      --shadow-soft: 0 20px 45px rgba(0, 0, 0, 0.55);
+      --radius-lg: 18px;
+      --max-width: 1200px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top, #162b4f 0, transparent 55%),
+        radial-gradient(circle at bottom, #120b24 0, transparent 55%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    section {
+      padding: 4rem 0;
+    }
+
+    #services {
+      position: relative;
+      background-image: url("llphoto2.png");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+
+    #services::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(4, 8, 22, 0.92), rgba(4, 8, 22, 0.88)), 
+                  radial-gradient(circle at top left, rgba(0, 193, 255, 0.12), transparent 60%), 
+                  radial-gradient(circle at bottom right, rgba(255, 92, 122, 0.1), transparent 60%);
+      pointer-events: none;
+    }
+
+    #services > .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Accessible skip link */
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      z-index: 1000;
+      background: rgba(10, 16, 33, 0.92);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 0.6rem 0.9rem;
+      border-radius: 12px;
+      color: var(--text);
+    }
+
+    .skip-link:focus {
+      left: 12px;
+      top: 12px;
+      width: auto;
+      height: auto;
+      outline: none;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+    }
+
+    /* HEADER / NAV */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(to bottom, rgba(4, 8, 22, 0.95), rgba(4, 8, 22, 0.88), transparent);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.8rem 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+
+    .brand-logo {
+      height: 32px;
+      width: auto;
+      border-radius: 6px;
+      display: block;
+    }
+
+    .brand-text {
+      font-size: 0.98rem;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.6rem;
+      margin: 0;
+      padding: 0;
+      font-size: 0.9rem;
+    }
+
+    nav a {
+      color: var(--muted);
+      border-bottom: 2px solid transparent;
+      padding-bottom: 0.2rem;
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+
+    nav a:hover {
+      color: var(--text);
+      border-color: var(--accent);
+    }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.55rem 1.15rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      font-size: 0.85rem;
+      color: var(--text);
+      background: rgba(10, 16, 33, 0.9);
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .nav-cta:hover {
+      background: linear-gradient(135deg, #00c1ff, #0066ff);
+      color: #02040a;
+      box-shadow: 0 16px 36px rgba(0, 193, 255, 0.45);
+      transform: translateY(-1px);
+    }
+
+    .nav-toggle {
+      display: none;
+    }
+
+    .mobile-menu {
+      display: none;
+    }
+
+    /* HERO (✅ now uses your high-quality image as the background) */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+      padding-top: 2rem;
+      padding-bottom: 3rem;
+
+      /* ✅ Put your generated image here (same folder as index.html) */
+      background-image: url("launchlabzphoto1.png");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    /* ✅ Overlay to keep text readable on top of image */
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 10%, rgba(0, 193, 255, 0.18), transparent 60%),
+        radial-gradient(circle at 90% 90%, rgba(255, 92, 122, 0.14), transparent 60%),
+        linear-gradient(90deg, rgba(4, 8, 22, 0.88), rgba(4, 8, 22, 0.70));
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* ✅ soft bottom fade into page background */
+    .hero::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 140px;
+      background: linear-gradient(to bottom, rgba(4, 8, 22, 0), rgba(4, 8, 22, 1));
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      /* above overlay */
+      display: grid;
+      grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.3fr);
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .hero h1 {
+      margin: 1.4rem 0 0.7rem;
+      font-size: clamp(2.5rem, 4vw, 3.3rem);
+      line-height: 1.08;
+      text-shadow: 0 18px 46px rgba(0, 0, 0, 0.45);
+    }
+
+    .accent-text {
+      color: var(--accent);
+    }
+
+    .hero-subtext {
+      color: var(--muted);
+      max-width: 32rem;
+      font-size: 0.98rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-rotator-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .hero-rotator {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      background: rgba(6, 13, 32, 0.92);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      font-size: 0.82rem;
+      margin-bottom: 1.4rem;
+      min-height: 2.2rem;
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.35);
+    }
+
+    .hero-rotator-pill {
+      padding: 0.12rem 0.55rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.74rem;
+    }
+
+    .hero-rotator-text {
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .hero-rotator-text.fade-out {
+      opacity: 0;
+      transform: translateY(4px);
+    }
+
+    .hero-rotator-text.fade-in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      padding: 0.75rem 1.35rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #00c1ff, #0066ff);
+      color: #02040a;
+      font-weight: 600;
+      box-shadow: 0 16px 34px rgba(0, 193, 255, 0.45);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 20px 42px rgba(0, 193, 255, 0.6);
+    }
+
+    .btn-ghost {
+      border-color: rgba(255, 255, 255, 0.14);
+      background: rgba(10, 16, 33, 0.84);
+      color: var(--muted);
+      box-shadow: 0 12px 26px rgba(0, 0, 0, 0.35);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--accent);
+      color: var(--text);
+      box-shadow: 0 16px 34px rgba(0, 0, 0, 0.5);
+      transform: translateY(-1px);
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.6rem;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .hero-meta strong {
+      display: block;
+      font-size: 1.05rem;
+      color: var(--text);
+      margin-bottom: 0.15rem;
+    }
+
+    /* HERO RIGHT PANE (dynamic cards) */
+    .hero-visual {
+      border-radius: 24px;
+      background:
+        radial-gradient(circle at 20% 0, rgba(0, 193, 255, 0.25), transparent 60%),
+        radial-gradient(circle at 80% 100%, rgba(255, 92, 122, 0.2), transparent 55%),
+        rgba(12, 20, 36, 0.86);
+      padding: 1.6rem 1.5rem 1.8rem;
+      border: 1px solid rgba(255, 255, 255, 0.10);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+    }
+
+    .hero-visual-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.1rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .hero-visual-header span:first-child {
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.76rem;
+      color: var(--accent);
+    }
+
+    .hero-visual-slider {
+      position: relative;
+      min-height: 180px;
+    }
+
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      border-radius: 14px;
+      padding: 1rem 1rem 1.1rem;
+      background: rgba(4, 10, 26, 0.92);
+      border: 1px solid rgba(255, 255, 255, 0.10);
+      opacity: 0;
+      transform: translateX(10px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      font-size: 0.85rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+
+    .hero-slide.active {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .hero-slide-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+    }
+
+    .hero-slide h3 {
+      margin: 0;
+      font-size: 1.02rem;
+    }
+
+    .hero-slide p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .hero-slide-meta {
+      margin-top: 0.4rem;
+      font-size: 0.76rem;
+      color: var(--muted);
+    }
+
+    .hero-slider-dots {
+      display: flex;
+      gap: 0.6rem;
+      margin-top: 1.1rem;
+    }
+
+    .hero-slider-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      background: transparent;
+      cursor: pointer;
+      padding: 0;
+    }
+
+    .hero-slider-dot.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      box-shadow: 0 0 0 4px rgba(0, 193, 255, 0.25);
+    }
+
+    /* SECTION COMMONS */
+    .section-header {
+      text-align: center;
+      margin-bottom: 2.4rem;
+    }
+
+    .section-eyebrow {
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title {
+      font-size: 1.7rem;
+      margin: 0 0 0.6rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.95rem;
+      color: var(--muted);
+      max-width: 36rem;
+      margin: 0 auto;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      padding: 1.35rem 1.3rem 1.5rem;
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.45);
+      font-size: 0.9rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      background: radial-gradient(circle at top, rgba(0, 193, 255, 0.2), transparent 65%);
+      transition: opacity 0.25s ease;
+      pointer-events: none;
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card-tag {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--accent);
+    }
+
+    .card h3 {
+      font-size: 1.03rem;
+      margin: 0;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .card-footer-link {
+      margin-top: 0.7rem;
+      font-size: 0.8rem;
+      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.2rem;
+    }
+
+    .card-footer-link::after {
+      content: "→";
+      font-size: 0.85em;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 2.5rem;
+      align-items: flex-start;
+    }
+
+    .stat-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2.3rem;
+      margin-top: 1.2rem;
+    }
+
+    .stat {
+      min-width: 7rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.35rem;
+      color: var(--text);
+      margin-bottom: 0.15rem;
+    }
+
+    .testimonials {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.4rem;
+    }
+
+    .quote {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .quote strong {
+      display: block;
+      margin-top: 0.6rem;
+      color: var(--text);
+    }
+
+    /* INSIGHTS HORIZONTAL SCROLLER */
+    .insights-row {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: minmax(250px, 1fr);
+      gap: 1.1rem;
+      overflow-x: auto;
+      padding-bottom: 0.3rem;
+      scroll-snap-type: x mandatory;
+    }
+
+    .insights-row::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    .insights-row::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 999px;
+    }
+
+    .insight-card {
+      scroll-snap-align: start;
+    }
+
+    /* CTA */
+    .cta {
+      border-radius: 24px;
+      padding: 2.1rem 1.9rem;
+      background:
+        radial-gradient(circle at 0 0, rgba(0, 193, 255, 0.25), transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(255, 92, 122, 0.25), transparent 55%),
+        #050a18;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: var(--shadow-soft);
+      text-align: center;
+    }
+
+    .cta h2 {
+      margin: 0 0 0.6rem;
+    }
+
+    .cta p {
+      margin: 0 0 1.5rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 2rem 0;
+      background: #030712;
+      margin-top: 2rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .footer-brand {
+      max-width: 14rem;
+    }
+
+    .footer-columns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2.4rem;
+    }
+
+    .footer-col h4 {
+      margin: 0 0 0.6rem;
+      font-size: 0.84rem;
+      color: var(--text);
+    }
+
+    .footer-col ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 0.4rem;
+    }
+
+    .footer-bottom {
+      margin-top: 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 1rem;
+      font-size: 0.75rem;
+      color: #6b768f;
+    }
+
+    /* REVEAL ANIMATIONS */
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.45s ease, transform 0.45s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ========== PARALLAX (Hero only) ========== */
+    /* ✅ We keep your parallax layers, but now they sit ON TOP of the hero background image */
+    .parallax-wrap {
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .parallax-layer {
+      position: absolute;
+      inset: -10%;
+      pointer-events: none;
+      z-index: 1;
+      /* above background image, below content */
+      transform: translate3d(0, 0, 0);
+      will-change: transform;
+    }
+
+    .parallax-stars {
+      background-image:
+        radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.10) 0 1px, transparent 2px),
+        radial-gradient(circle at 70% 80%, rgba(255, 255, 255, 0.08) 0 1px, transparent 2px),
+        radial-gradient(circle at 30% 60%, rgba(255, 255, 255, 0.06) 0 1px, transparent 2px);
+      background-size: 220px 220px, 260px 260px, 300px 300px;
+      opacity: 0.30;
+      filter: blur(0.2px);
+    }
+
+    .parallax-blobs::before,
+    .parallax-blobs::after {
+      content: "";
+      position: absolute;
+      width: 520px;
+      height: 520px;
+      border-radius: 999px;
+      filter: blur(42px);
+      opacity: 0.45;
+    }
+
+    .parallax-blobs::before {
+      left: -80px;
+      top: 40px;
+      background: rgba(0, 193, 255, 0.20);
+    }
+
+    .parallax-blobs::after {
+      right: -120px;
+      bottom: -60px;
+      background: rgba(255, 92, 122, 0.16);
+    }
+
+    .parallax-grid {
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+      background-size: 70px 70px;
+      opacity: 0.10;
+      mask-image: radial-gradient(circle at 40% 30%, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0) 70%);
+    }
+
+    .parallax-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* ✅ Parallax-friendly background attachment */
+    .hero {
+      background-attachment: fixed;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        background-attachment: scroll;
+      }
+    }
+
+    /* Reduced motion accessibility */
+    @media (prefers-reduced-motion: reduce) {
+      .hero {
+        background-attachment: scroll;
+      }
+
+      .hero-rotator-text {
+        transition: none;
+      }
+
+      .hero-slide {
+        transition: none;
+      }
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .hero-inner {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-visual {
+        order: -1;
+        margin-bottom: 1.5rem;
+      }
+
+      .cards-grid,
+      .testimonials {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .two-col {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 720px) {
+      nav ul {
+        display: none;
+      }
+
+      .nav-toggle {
+        display: inline-flex;
+        background: none;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 999px;
+        padding: 0.3rem 0.65rem;
+        font-size: 0.78rem;
+        color: var(--muted);
+        cursor: pointer;
+      }
+
+      .nav-cta {
+        display: none;
+      }
+
+      .mobile-menu {
+        display: none;
+        flex-direction: column;
+        gap: 0.75rem;
+        padding-bottom: 0.8rem;
+        font-size: 0.9rem;
+      }
+
+      .mobile-menu.open {
+        display: flex;
+      }
+
+      .cards-grid,
+      .testimonials {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero {
+        padding-top: 2.4rem;
+      }
+
+      section {
+        padding: 3rem 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#home">Skip to content</a>
+
+  <div class="page">
+    <!-- HEADER -->
+    <header>
+      <div class="container">
+        <div class="nav">
+          <div class="brand">
+            <img src="logofinal.PNG" class="brand-logo" alt="Launch Labz logo">
+            <span class="brand-text">LAUNCHLABZ</span>
+          </div>
+          <nav aria-label="Main navigation">
+            <ul>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#services">Services</a></li>
+              <li><a href="#training">Training</a></li>
+              <li><a href="#placement">Placement</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#insights">Insights</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </nav>
+          <button class="nav-toggle" type="button" aria-label="Toggle navigation">Menu</button>
+          <a href="#contact" class="nav-cta">Let’s Talk</a>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+          <a href="#home">Home</a>
+          <a href="#services">Services</a>
+          <a href="#training">Training</a>
+          <a href="#placement">Placement</a>
+          <a href="#about">About</a>
+          <a href="#insights">Insights</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <main id="home">
+      <section class="hero parallax-wrap" id="heroParallax">
+        <!-- Parallax layers (subtle on top of hero image) -->
+        <div class="parallax-layer parallax-stars" data-speed="0.18"></div>
+        <div class="parallax-layer parallax-grid" data-speed="0.28"></div>
+        <div class="parallax-layer parallax-blobs" data-speed="0.12"></div>
+
+        <div class="container hero-inner parallax-content">
+          <div class="reveal">
+            <h1>Launch your next <span class="accent-text">tech career</span>.</h1>
+            <div class="hero-rotator-label">Our current focus</div>
+            <div class="hero-rotator">
+              <span class="hero-rotator-pill">Program</span>
+              <span class="hero-rotator-text" id="rotatorText">
+                Career-ready Java & Spring Boot training with production-style projects.
+              </span>
+            </div>
+            <br>
+            <div class="cta reveal" style="display:inline-flex; align-items:center; gap:0.6rem; background-color:rgb(4, 0, 35); padding:0.75rem 1.2rem; border-radius:10px; cursor:pointer; margin-bottom:1.4rem;" onclick="location.href='#contact'">
+              <h3 style="line-height:1; margin:0; font-size:0.9rem; color:rgb(255, 255, 255);">Job or Talent Seeker?</h3>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:rgb(255, 255, 255);">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </div>
+            <br>
+            <br>
+
+            <div class="hero-actions">
+              <a href="#training" class="btn btn-primary">Explore programs</a>
+              <a href="#contact" class="btn btn-ghost">Talk to us</a>
+            </div>
+            <div class="hero-meta">
+              <div>
+                <strong>Career-ready paths</strong>
+                From fundamentals to project-based mentoring.
+              </div>
+              <div>
+                <strong>Real projects</strong>
+                Learning from in-house projects.
+              </div>
+            </div>
+          </div>
+
+          <!-- HERO RIGHT: dynamic slides -->
+          <aside class="hero-visual reveal" aria-label="Program highlights">
+            <div class="hero-visual-header">
+              <span>Program highlights</span>
+              <span id="heroSliderStatus">1 / 3</span>
+            </div>
+            <div class="hero-visual-slider" id="heroSlider"></div>
+            <div class="hero-slider-dots" id="heroSliderDots"></div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- SERVICES -->
+      <section id="services">
+        <div class="container reveal">
+          <div class="section-header">
+            <div class="section-eyebrow">What we do</div>
+            <h2 class="section-title">Core services for learners and teams</h2>
+            <p class="section-subtitle">
+              Inspired by enterprise training models, optimized for individuals and small teams
+              who need practical skills, not just theory.
+            </p>
+          </div>
+
+          <div class="cards-grid">
+            <article class="card">
+              <div class="card-tag">Learn</div>
+              <h3>Career-ready IT training</h3>
+              <p>
+                Structured paths across full-stack development, cloud fundamentals,
+                and software engineering best practices.
+              </p>
+              <a href="#training" class="card-footer-link">View training tracks</a>
+            </article>
+
+            <article class="card">
+              <div class="card-tag">Launch</div>
+              <h3>Placement & interview prep</h3>
+              <p>
+                Resume curation, mock interviews, coding drills, and guidance on how to talk
+                about real project experience with confidence.
+              </p>
+              <a href="#placement" class="card-footer-link">How placement works</a>
+            </article>
+
+            <article class="card">
+              <div class="card-tag">Partner</div>
+              <h3>Corporate upskilling</h3>
+              <p>
+                Short, focused programs for teams that need to modernize Java stacks,
+                adopt cloud-native patterns, or improve DevOps workflows.
+              </p>
+              <a href="#contact" class="card-footer-link">Discuss a team program</a>
+            </article>
+
+            <article class="card">
+              <div class="card-tag">Mentor</div>
+              <h3>1:1 coaching & mentoring</h3>
+              <p>
+                Personalized guidance for career switchers, junior engineers,
+                and professionals aiming for their next promotion.
+              </p>
+              <a href="#contact" class="card-footer-link">Schedule a call</a>
+            </article>
+
+            <article class="card">
+              <div class="card-tag">Build</div>
+              <h3>Project-based learning</h3>
+              <p>
+                Learn by implementing end-to-end projects: APIs, integrations, CI/CD,
+                logging, and cloud deployment pipelines.
+              </p>
+            </article>
+
+            <article class="card">
+              <div class="card-tag">Support</div>
+              <h3>Long-term alumni community</h3>
+              <p>
+                Stay connected with peers and mentors, get feedback on new offers,
+                and keep leveling up as technologies change.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- TRAINING -->
+      <section id="training">
+        <div class="container reveal">
+          <div class="section-header">
+            <div class="section-eyebrow">Training programs</div>
+            <h2 class="section-title">Structured paths with real-world tech</h2>
+            <p class="section-subtitle">
+              Each track is designed around how modern engineering teams actually work –
+              from version control and branching to CI/CD, development, testing, and production-style debugging.
+            </p>
+          </div>
+
+          <div class="cards-grid">
+            <article class="card">
+              <div class="card-tag">Track</div>
+              <h3>Full-Stack Software Developer</h3>
+              <p>
+                Java, Spring Boot, REST APIs, databases, unit testing, and deployment.
+                React, Angular, JavaScript, and more.
+              </p>
+              <p><strong>Ideal for:</strong> Aspiring backend, frontend, or full-stack engineers.</p>
+            </article>
+
+            <article class="card">
+              <div class="card-tag">Track</div>
+              <h3>Cloud & DevOps Starter</h3>
+              <p>
+                AWS fundamentals, CI/CD, monitoring, logging, and secure deployments
+                for small services and APIs.
+              </p>
+              <p><strong>Ideal for:</strong> Developers moving closer to cloud roles.</p>
+            </article>
+
+            <article class="card">
+              <div class="card-tag">Track</div>
+              <h3>Integration, Testing, and Compliance</h3>
+              <p>
+                REST/SOAP integrations, UI–backend integration testing, defect analysis, and reporting.
+              </p>
+              <p><strong>Ideal for:</strong> Anyone interested in testing, support, and app compliance.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- PLACEMENT + TESTIMONIALS -->
+      <section id="placement">
+        <div class="container two-col">
+          <div class="reveal">
+            <div class="section-eyebrow">Placement support</div>
+            <h2 class="section-title">From learning to landing the role</h2>
+            <p style="color: var(--muted); font-size: 0.95rem;">
+              We treat placement as a structured process – not luck. From resume and LinkedIn cleanup
+              to focused interview practice around your chosen stack, we help you tell a clear,
+              credible story about your skills.
+            </p>
+
+            <ul style="margin-top: 1rem; padding-left: 1.1rem; color: var(--muted); font-size: 0.9rem;">
+              <li>Role-aligned resume and LinkedIn optimization</li>
+              <li>Mock interviews for Java, system design basics, and behavioral questions</li>
+              <li>Guidance on coding challenge strategy and time management</li>
+              <li>Support in evaluating offers and planning your first 90 days</li>
+            </ul>
+
+            <div class="stat-row">
+              <div class="stat">
+                <strong>1:1</strong>
+                Personalized mentoring
+              </div>
+              <div class="stat">
+                <strong>Project-oriented</strong>
+                Show skills with real work
+              </div>
+              <div class="stat">
+                <strong>Ongoing</strong>
+                Support beyond the bootcamp
+              </div>
+            </div>
+          </div>
+
+          <div class="reveal">
+            <div class="section-eyebrow">Voices from learners</div>
+            <div class="testimonials">
+              <article class="card">
+                <p class="quote">
+                  “I came from a non-CS background. The project-based approach and debugging mindset
+                  helped me feel comfortable in a real team environment.”
+                  <strong>— Learner, Backend Developer Role</strong>
+                </p>
+              </article>
+              <article class="card">
+                <p class="quote">
+                  “Mock interviews were almost harder than my actual interviews – in a good way.
+                  I knew what to expect and how to explain my projects.”
+                  <strong>— Learner, Cloud Engineer Role</strong>
+                </p>
+              </article>
+              <article class="card">
+                <p class="quote">
+                  “We used the same concepts at work that we practiced in labs: logs, error tracking,
+                  and reading stack traces under pressure.”
+                  <strong>— Learner, Java Developer Role</strong>
+                </p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about">
+        <div class="container two-col">
+          <div class="reveal">
+            <div class="section-eyebrow">About Launch Labz LLC</div>
+            <h2 class="section-title">Built by engineers, shaped by real projects</h2>
+            <p style="color: var(--muted); font-size: 0.95rem;">
+              Launch Labz LLC is an IT training and placement company focused on practical,
+              enterprise-grade skills. We combine industry experience with teaching that
+              emphasizes clarity, repetition, and hands-on practice.
+            </p>
+            <p style="color: var(--muted); font-size: 0.95rem;">
+              We understand how modern engineering teams ship software – from local development
+              to production monitoring. Every exercise is designed around this reality.
+            </p>
+          </div>
+
+          <div class="reveal">
+            <div class="stat-row">
+              <div class="stat">
+                <strong>Hands-on</strong>
+                Project-based labs
+              </div>
+              <div class="stat">
+                <strong>Mentorship</strong>
+                Structured coaching
+              </div>
+              <div class="stat">
+                <strong>Focus</strong>
+                Java • Cloud • DevOps • Integration
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- INSIGHTS -->
+      <section id="insights">
+        <div class="container reveal">
+          <div class="section-header">
+            <div class="section-eyebrow">Insights</div>
+            <h2 class="section-title">Guides & perspectives for learners</h2>
+            <p class="section-subtitle">
+              Use these short guides as you plan a transition into software or strengthen your
+              existing career path.
+            </p>
+          </div>
+
+          <div class="insights-row">
+            <article class="card insight-card">
+              <div class="card-tag">Guide</div>
+              <h3>From non-IT to Java developer</h3>
+              <p>
+                A simple roadmap for moving into backend engineering, including what to learn
+                and how to showcase your projects.
+              </p>
+              <a href="#" class="card-footer-link">Coming soon</a>
+            </article>
+
+            <article class="card insight-card">
+              <div class="card-tag">Article</div>
+              <h3>Reading logs like a pro</h3>
+              <p>
+                How to approach logs and error messages so that you can debug calmly under time pressure.
+              </p>
+              <a href="#" class="card-footer-link">Coming soon</a>
+            </article>
+
+            <article class="card insight-card">
+              <div class="card-tag">Checklist</div>
+              <h3>Interview-week preparation list</h3>
+              <p>
+                The practical steps to follow in the 7 days before interviews start: practice, rest,
+                environment, and mindset.
+              </p>
+              <a href="#" class="card-footer-link">Coming soon</a>
+            </article>
+
+            <article class="card insight-card">
+              <div class="card-tag">Perspective</div>
+              <h3>Thinking like a production engineer</h3>
+              <p>
+                Building the habit of checking logs, metrics, and dependencies before jumping to conclusions.
+              </p>
+              <a href="#" class="card-footer-link">Coming soon</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT / CTA -->
+      <section id="contact">
+        <div class="container">
+          <div class="cta reveal">
+            <h2>Let’s launch your next step.</h2>
+            <p>
+              Share a bit about your background and where you want to go. We’ll recommend a path
+              and next actions – whether that’s a full program, a short sprint, or focused mentoring.
+            </p>
+            <div class="hero-actions" style="justify-content: center;">
+              <a href="mailto:info@launchlabzit.com" class="btn btn-primary">
+                Email us: info@launchlabzit.com
+              </a>
+              <a href="#home" class="btn btn-ghost">
+                Back to top
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="container">
+        <div class="footer-inner">
+          <div class="footer-brand">
+            <div class="brand">
+              <img src="logofinal.png" class="brand-logo" alt="Launch Labz logo">
+              <span class="brand-text">LAUNCHLABZ</span>
+            </div>
+            <p style="margin-top: 0.8rem;">
+              IT training, placement support, and consulting for learners and teams
+              ready to grow into modern engineering roles.
+            </p>
+          </div>
+
+          <div class="footer-columns">
+            <div class="footer-col">
+              <h4>Company</h4>
+              <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#training">Training</a></li>
+                <li><a href="#placement">Placement</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4>Resources</h4>
+              <ul>
+                <li><a href="#insights">Insights</a></li>
+                <li><a href="mailto:info@launchlabzit.com">Email us</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4>Connect</h4>
+              <ul>
+                <li><a href="#" target="_blank" rel="noopener noreferrer">LinkedIn (add link)</a></li>
+                <li><a href="#" target="_blank" rel="noopener noreferrer">GitHub (add link)</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <span>© <span id="year"></span> Launch Labz LLC. All rights reserved.</span>
+          <span>Website powered by GitHub Pages.</span>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Mobile nav toggle
+    const navToggle = document.querySelector(".nav-toggle");
+    const mobileMenu = document.getElementById("mobileMenu");
+    if (navToggle && mobileMenu) {
+      navToggle.addEventListener("click", () => {
+        mobileMenu.classList.toggle("open");
+      });
+
+      // Close mobile menu after clicking a link
+      document.querySelectorAll("#mobileMenu a").forEach(link => {
+        link.addEventListener("click", () => mobileMenu.classList.remove("open"));
+      });
+    }
+
+    // Hero rotating text
+    const rotatorText = document.getElementById("rotatorText");
+    const heroMessages = [
+      "Career-ready backend and front-end training with production-style projects.",
+      "Cloud & DevOps: fundamentals to advanced.",
+      "Interview-focused practice with mock sessions and feedback.",
+      "Enterprise integration skills for APIs, UI, and databases."
+    ];
+    let rotatorIndex = 0;
+
+    function rotateHeroText() {
+      if (!rotatorText) return;
+      rotatorText.classList.remove("fade-in");
+      rotatorText.classList.add("fade-out");
+      setTimeout(() => {
+        rotatorIndex = (rotatorIndex + 1) % heroMessages.length;
+        rotatorText.textContent = heroMessages[rotatorIndex];
+        rotatorText.classList.remove("fade-out");
+        rotatorText.classList.add("fade-in");
+      }, 260);
+    }
+    setInterval(rotateHeroText, 4000);
+
+    // Hero slider (program highlights)
+    const heroSlider = document.getElementById("heroSlider");
+    const heroSliderDots = document.getElementById("heroSliderDots");
+    const heroSliderStatus = document.getElementById("heroSliderStatus");
+    const slidesData = [
+      {
+        label: "Full-Stack",
+        title: "Full-Stack Bootcamp",
+        body: "Hands-on projects covering Spring Boot, REST APIs, unit tests, logging, and cloud deployment.",
+        meta: "Ideal for: Backend & full-stack aspirants."
+      },
+      {
+        label: "DevOps & Cloud",
+        title: "DevOps & Cloud Starter",
+        body: "CI/CD, environments, monitoring, and troubleshooting workflows that mirror real teams. Cloud services: AWS, Azure, and more.",
+        meta: "Ideal for: Developers moving toward DevOps or cloud roles."
+      },
+      {
+        label: "Placement",
+        title: "Interview & Placement Lab",
+        body: "Mock interviews, resume review, and practice decoding job descriptions into skill plans.",
+        meta: "Ideal for: Anyone actively preparing for interviews."
+      }
+    ];
+
+    let currentSlide = 0;
+
+    function renderSlides() {
+      if (!heroSlider || !heroSliderDots) return;
+      heroSlider.innerHTML = "";
+      heroSliderDots.innerHTML = "";
+
+      slidesData.forEach((slide, index) => {
+        const slideEl = document.createElement("article");
+        slideEl.className = "hero-slide";
+        if (index === currentSlide) slideEl.classList.add("active");
+
+        slideEl.innerHTML = `
+        <div class="hero-slide-label">${slide.label}</div>
+        <h3>${slide.title}</h3>
+        <p>${slide.body}</p>
+        <div class="hero-slide-meta">${slide.meta}</div>
+      `;
+        heroSlider.appendChild(slideEl);
+
+        const dot = document.createElement("button");
+        dot.className = "hero-slider-dot" + (index === currentSlide ? " active" : "");
+        dot.type = "button";
+        dot.setAttribute("aria-label", "Go to slide " + (index + 1));
+        dot.addEventListener("click", () => {
+          currentSlide = index;
+          updateSlides();
+        });
+        heroSliderDots.appendChild(dot);
+      });
+
+      if (heroSliderStatus) {
+        heroSliderStatus.textContent = (currentSlide + 1) + " / " + slidesData.length;
+      }
+    }
+
+    function updateSlides() {
+      const slideEls = heroSlider.querySelectorAll(".hero-slide");
+      const dotEls = heroSliderDots.querySelectorAll(".hero-slider-dot");
+      slideEls.forEach((el, index) => el.classList.toggle("active", index === currentSlide));
+      dotEls.forEach((el, index) => el.classList.toggle("active", index === currentSlide));
+      if (heroSliderStatus) heroSliderStatus.textContent = (currentSlide + 1) + " / " + slidesData.length;
+    }
+
+    renderSlides();
+    setInterval(() => {
+      currentSlide = (currentSlide + 1) % slidesData.length;
+      updateSlides();
+    }, 5500);
+
+    // Reveal on scroll
+    const revealEls = document.querySelectorAll(".reveal");
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.14 }
+    );
+    revealEls.forEach(el => observer.observe(el));
+
+    // Parallax (mouse + scroll) - hero only
+    (function () {
+      const wrap = document.getElementById("heroParallax");
+      if (!wrap) return;
+
+      const layers = wrap.querySelectorAll(".parallax-layer[data-speed]");
+      const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (prefersReduced) return;
+
+      let mouseX = 0, mouseY = 0;
+      let currentX = 0, currentY = 0;
+
+      window.addEventListener("mousemove", (e) => {
+        const cx = window.innerWidth / 2;
+        const cy = window.innerHeight / 2;
+        mouseX = (e.clientX - cx) / cx; // -1..1
+        mouseY = (e.clientY - cy) / cy; // -1..1
+      }, { passive: true });
+
+      function getScrollOffset() {
+        const rect = wrap.getBoundingClientRect();
+        const viewH = window.innerHeight || 1;
+        const t = (rect.top + rect.height / 2 - viewH / 2) / (viewH / 2);
+        return Math.max(-1, Math.min(1, t));
+      }
+
+      function animate() {
+        currentX += (mouseX - currentX) * 0.06;
+        currentY += (mouseY - currentY) * 0.06;
+
+        const scrollT = getScrollOffset();
+
+        layers.forEach(layer => {
+          const speed = parseFloat(layer.dataset.speed || "0.2");
+          const x = currentX * 18 * speed;
+          const y = (currentY * 14 * speed) + (scrollT * 22 * speed);
+          layer.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+        });
+
+        requestAnimationFrame(animate);
+      }
+
+      requestAnimationFrame(animate);
+    })();
+  </script>
+</body>
+
+</html>
